@@ -19,10 +19,7 @@ const posts = (await getCollection("blog")).sort(
             <li>
               <a href={"/blog/" + post.slug}>{post.data.title}</a>
               <div class="frontmatter">
-                <p>
-                  Published:{" "}
-                  {post.data.publishedDate.toString().split("02:")[0]}
-                </p>
+                <p>Published: {post.data.publishedDate.toDateString()}</p>
                 <p class="tags">
                   Tags:
                   {post.data.tags.map((tag) => {
