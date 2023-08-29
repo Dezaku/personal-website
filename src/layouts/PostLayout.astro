@@ -1,7 +1,6 @@
 ---
 const { title, pubDate, tags } = Astro.props;
 
-console.log(tags);
 ---
 
 <!DOCTYPE html>
@@ -26,7 +25,7 @@ console.log(tags);
       <h1 class="text-gradient">{title}</h1>
     </div>
     <div class="frontmatter">
-      <p>Published: {pubDate.toString().split("02:")[0]}</p>
+      <p>Published: {new Date(pubDate).toDateString()}</p>
       <p>
         Tags:
         {
