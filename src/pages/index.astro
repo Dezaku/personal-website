@@ -27,7 +27,7 @@ const posts = (await getCollection("blog")).sort(
     posts.slice(0, 3).map((post) => {
       return (
         <div class="post">
-          <a href={post.slug}>{post.data.title}</a>
+          <a href=`blog/${post.slug}`>{post.data.title}</a>
           <p>{post.data.description}</p>
           <p class="tags">
             {post.data.tags.map((tag) => {
