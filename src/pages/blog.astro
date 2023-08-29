@@ -1,3 +1,85 @@
-<body>
-  <h1>Blog</h1>
-</body>
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.publishedDate.valueOf() - b.data.publishedDate.valueOf()
+);
+---
+
+<Layout title="Dezaku | Blog">
+  <div class="titleContainer">
+    <h1 class="text-gradient">This is my Blog.</h1>
+  </div>
+
+  <div class="posts">
+    <ul>
+      {
+        posts.map((post) => {
+          return (
+            <li>
+              <a href={"/blog/" + post.slug}>{post.data.title}</a>
+              <div class="frontmatter">
+                <p>
+                  Published:{" "}
+                  {post.data.publishedDate.toString().split("02:")[0]}
+                </p>
+                <p class="tags">
+                  Tags:
+                  {post.data.tags.map((tag) => {
+                    return <span class="tag">{tag}</span>;
+                  })}
+                </p>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .titleContainer {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  ul li {
+    margin-bottom: 2.35rem;
+  }
+
+  ul li:last-child {
+    margin: 0;
+  }
+
+  ul li a {
+    font-size: 28px;
+    color: white;
+  }
+
+  .frontmatter {
+    color: rgb(189, 186, 186);
+    font-size: 18px;
+  }
+  p span {
+    margin-left: 1rem;
+  }
+
+  p span:first-child {
+    margin: 0;
+  }
+
+  .tag {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+  }
+</style>

@@ -1,9 +1,7 @@
 ---
-interface Props {
-  title: string;
-}
+const { title, pubDate, tags } = Astro.props;
 
-const { title } = Astro.props;
+console.log(tags);
 ---
 
 <!DOCTYPE html>
@@ -24,10 +22,56 @@ const { title } = Astro.props;
         <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
-
+    <div class="titleContainer">
+      <h1 class="text-gradient">{title}</h1>
+    </div>
+    <div class="frontmatter">
+      <p>Published: {pubDate.toString().split("02:")[0]}</p>
+      <p>
+        Tags:
+        {
+          tags.map((tag) => {
+            return <span>{tag}</span>;
+          })
+        }
+      </p>
+    </div>
     <slot />
   </body>
 </html>
+
+<style>
+    
+  .titleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    font-size: 28px;
+    gap: 3rem;
+  }
+  .titleContainer h1 {
+    margin: 0;
+  }
+
+  p span {
+    margin-left: 1rem;
+  }
+
+  p span:first-child {
+    margin: 0;
+  }
+
+  .frontmatter {
+    color: rgb(189, 186, 186);+
+    margin-top: 0px;
+    margin-bottom: 3rem;
+    line-height: 1;
+  }
+  .frontmatter p {
+    margin: 0;
+  }
+</style>
+
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
   :root {
@@ -42,10 +86,6 @@ const { title } = Astro.props;
     );
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
   html {
     font-family: "Space Mono", monospace;
     background: #13151a;
