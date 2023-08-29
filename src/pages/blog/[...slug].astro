@@ -11,6 +11,8 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+export const prerender = true;
 ---
 
 <PostLayout
