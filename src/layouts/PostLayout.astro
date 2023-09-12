@@ -22,7 +22,7 @@ const { title, pubDate, tags } = Astro.props;
       </ul>
     </nav>
     <div class="titleContainer">
-      <h1 class="text-gradient">{title}</h1>
+      <h2 class="text-gradient space-mono">{title}</h2>
     </div>
     <div class="frontmatter">
       <p>Published: {pubDate.toDateString()}</p>
@@ -73,6 +73,8 @@ const { title, pubDate, tags } = Astro.props;
 
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -92,6 +94,8 @@ const { title, pubDate, tags } = Astro.props;
   }
 
   body {
+    font-family: 'Open Sans', sans-serif;
+
     margin: auto;
     /* padding: 1rem; */
     max-width: 47.5rem;
@@ -121,8 +125,12 @@ const { title, pubDate, tags } = Astro.props;
 
   code {
     font-family: "Space Mono", monospace;
+    font-size: 16px;
   }
 
+  .space-mono {
+    font-family: "Space Mono", monospace;
+  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;

@@ -5,7 +5,6 @@ description: In this post I show you how to create your own authentication syste
 tags: ["astro", "prisma", "postgres", "auth"]
 slug: how-to-create-your-own-authentication-system-with-astro-and-prisma+postgresql
 ---
-# How to create your own authentication system with Astro and Prisma + PostgresSQL
 
 Note: This blog post does not go trough the setup part of Prisma. Make sure you know how to set up Prisma with your database to follow this guide.
 ## Setting up the Astro Project
