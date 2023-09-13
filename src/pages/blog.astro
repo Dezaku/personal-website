@@ -4,8 +4,37 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.publishedDate.valueOf() - b.data.publishedDate.valueOf()
 );
+import { SEO } from "astro-seo";
 ---
 
+<head>
+  <meta
+    name="description"
+    content=`This is the personal blog of Dezaku on his personal website. In this blog he talks about technical stuff and also does tutorials for things like authentication and url shorteners.`
+  />
+  <SEO
+    title="Dezaku | Blog"
+    openGraph={{
+      basic: {
+        title: "Dezaku's Blog",
+        type: "website",
+        image: "",
+      },
+    }}
+    twitter={{
+      creator: "@_dezaku",
+    }}
+    extend={{
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "dezaku,astro,blog,development,webdev,web,technic,technical,portfolio,personal,personal-website,Astro,Vercel",
+        },
+      ],
+    }}
+  />
+</head>
 <Layout title="Dezaku | Blog">
   <div class="titleContainer">
     <h1 class="text-gradient">This is my Blog.</h1>

@@ -1,7 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { SEO } from "astro-seo";
 ---
 
+<head>
+  <meta
+    name="description"
+    content=`This is the about page of Dezaku on his website. In here there is a text describing who he is and stuff like that. You can learn much about him on this page since it's an about page.`
+  />
+  <SEO
+    title="Dezaku | About"
+    openGraph={{
+      basic: {
+        title: "About Dezaku",
+        type: "website",
+        image: "",
+      },
+    }}
+    twitter={{
+      creator: "@_dezaku",
+    }}
+    extend={{
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "dezaku,astro,blog,development,webdev,web,technic,technical,portfolio,personal,personal-website,Astro,Vercel",
+        },
+      ],
+    }}
+  />
+</head>
 <Layout title="Dezaku | About">
   <div class="titleContainer">
     <h1 class="text-gradient">This is me.</h1>

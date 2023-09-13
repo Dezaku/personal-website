@@ -13,32 +13,6 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="description"
-      content=`This is the personal website or also called portfolio of dezaku a hobby developer also working in web development or "web dev". The site is made with the Astro framework and features a blog where Dezaku posts about technical stuff and development stuff like he did with authentication and an url shortener.`
-    />
-    <SEO
-      title={title}
-      openGraph={{
-        basic: {
-          title: "Personal Website of Dezaku",
-          type: "website",
-          image: "",
-        },
-      }}
-      twitter={{
-        creator: "@_dezaku",
-      }}
-      extend={{
-        meta: [
-          {
-            name: "keywords",
-            content:
-              "dezaku,astro,blog,development,webdev,web,technic,technical,portfolio,personal,personal-website,Astro,Vercel",
-          },
-        ],
-      }}
-    />
   </head>
   <body>
     <nav>

@@ -1,45 +1,76 @@
 ---
 import { getCollection } from "astro:content";
+import { SEO } from "astro-seo"
 import Layout from "../layouts/Layout.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.publishedDate.valueOf() - b.data.publishedDate.valueOf()
 );
 ---
 
+<head>
+  <meta
+    name="description"
+    content=`This is the personal website or also called portfolio of dezaku a hobby developer also working in web development or "web dev". The site is made with the Astro framework and features a blog where Dezaku posts about technical stuff and development stuff like he did with authentication and an url shortener.`
+  />
+  <SEO
+    title="Dezaku | Home"
+    openGraph={{
+      basic: {
+        title: "Personal Website of Dezaku",
+        type: "website",
+        image: "",
+      },
+    }}
+    twitter={{
+      creator: "@_dezaku",
+    }}
+    extend={{
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "dezaku,astro,blog,development,webdev,web,technic,technical,portfolio,personal,personal-website,Astro,Vercel",
+        },
+      ],
+    }}
+  />
+</head>
 <Layout title="Dezaku | Home">
-  <div class="titleContainer">
-    <img
+  <body>
+
+    <div class="titleContainer">
+      <img
       src="https://cdn.discordapp.com/avatars/899407456147480596/b912a3e5460db56c9a30f91d279f65cb.webp"
       style="width: 100px; height: 100px;"
       alt="my discord profile picture"
-    />
-    <h1 class="text-gradient"><a href="/about">Hi. I'm Dezaku.</a></h1>
-    <!-- <p>
-      A 17 years old student in Hessen, Germany. <br /><a
+      />
+      <h1 class="text-gradient"><a href="/about">Hi. I'm Dezaku.</a></h1>
+      <!-- <p>
+        A 17 years old student in Hessen, Germany. <br /><a
         class="text-gradient"
         href="/about">Learn more</a
-      >
-    </p> -->
-  </div>
-</Layout>
-<h3>Recent Posts</h3>
-<div class="posts">
-  {
-    posts.slice(0, 3).map((post) => {
-      return (
-        <div class="post">
-          <a href=`blog/${post.slug}`>{post.data.title}</a>
-          <p>{post.data.description}</p>
-          <p class="tags">
-            {post.data.tags.map((tag) => {
-              return <span class="tag">{tag}</span>;
-            })}
-          </p>
-        </div>
-      );
-    })
-  }
+        >
+      </p> -->
+    </div>
+    <h3>Recent Posts</h3>
+    <div class="posts">
+    {
+      posts.slice(0, 3).map((post) => {
+        return (
+          <div class="post">
+            <a href=`blog/${post.slug}`>{post.data.title}</a>
+            <p>{post.data.description}</p>
+            <p class="tags">
+              {post.data.tags.map((tag) => {
+                return <span class="tag">{tag}</span>;
+              })}
+              </p>
+              </div>
+              );
+            })
+          }
 </div>
+</Layout>
 
 <style>
   .titleContainer {
