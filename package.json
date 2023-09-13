@@ -11,6 +11,12 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^3.8.2",
-    "astro": "^2.10.7"
+    "@prisma/client": "^5.2.0",
+    "astro": "^2.10.7",
+    "astro-seo": "^0.8.0",
+    "nanoid": "^5.0.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.2.0"
   }
 }
