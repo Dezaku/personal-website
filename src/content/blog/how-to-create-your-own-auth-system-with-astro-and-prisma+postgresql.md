@@ -1,5 +1,5 @@
 ---
-title: How to create your own authentication system with Astro and Prisma + PostgresSQL
+title: How to create your own authentication system with Astro and Prisma
 publishedDate: 2023-08-30
 description: In this post I show you how to create your own authentication system with Astro and Prisma + PostgresSQL while also explaining the code.
 tags: ["astro", "prisma", "postgres", "auth"]

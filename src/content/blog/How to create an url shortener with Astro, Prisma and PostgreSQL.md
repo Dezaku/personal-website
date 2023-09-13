@@ -1,5 +1,5 @@
 ---
-title: How to create an url shortener with Astro, Prisma and PostgreSQL
+title: How to create an url shortener with Astro and Prisma
 publishedDate: 2023-09-13
 description: "In this post we will go trough the process of creating an url shortener with the following tools: Astro, Prisma, PostgreSQL"
 tags:

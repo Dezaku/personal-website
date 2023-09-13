@@ -1,6 +1,6 @@
 ---
-const { title, pubDate, tags } = Astro.props;
-
+const { title, pubDate, description, tags} = Astro.props;
+import { SEO } from "astro-seo"
 ---
 
 <!DOCTYPE html>
@@ -9,7 +9,34 @@ const { title, pubDate, tags } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+     <head>
+      <meta
+        name="description"
+        content={description}
+      />
+      <SEO
+      title={title}
+        openGraph={{
+          basic: {
+            title: title,
+            type: "website",
+            image: "",
+          },
+        }}
+        twitter={{
+          creator: "@_dezaku",
+        }}
+        extend={{
+          meta: [
+            {
+              name: "keywords",
+              content:
+                "dezaku,astro,blog,development,webdev,web,technic,technical,portfolio,personal,personal-website,Astro,Vercel, auth, learning, learn",
+            },
+          ],
+        }}
+      />
+    </head>
   </head>
   <body>
     <nav>
